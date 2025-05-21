@@ -76,3 +76,60 @@ body{
 .profile__button_mas{
     position: absolute;  
 }
+
+.gallery{
+    max-width: 880px;
+    margin: 60px auto;
+}
+
+.gallery_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    
+}
+
+.gallery__valle{
+    width: 282px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+
+.gallery__group{
+    background-image: url(/images/Rectanglegroup.png);
+    width: 282px;
+    color: #000;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.gallery__description{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+}
+
+.gallery__name{
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -1px;
+}
+.gallery__like{
+    width: 21px;
+}
+
+.footer{
+    max-width: 880px;
+    margin: 0 auto 60px;
+}
+
+.copyrigth{
+    color: #545454;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
