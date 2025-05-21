@@ -133,3 +133,24 @@ body{
     line-height: 100%;
     letter-spacing: 0%;
 }
+
+.popup{
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    z-index: 1;
+    
+}
+
+.popup__container{
+    max-width: 430px;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.popup__input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
