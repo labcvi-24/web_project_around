@@ -60,6 +60,7 @@ body{
 
 .profile__button_edit{
     margin: 0 0 20px 10px;
+    cursor:pointer;
 }
 
 .profile__button{
@@ -135,22 +136,74 @@ body{
 }
 
 .popup{
+    display: none;
     width: 100%;
-    background-color: #000;
+    height: 100vh;
+    background-color: #00000078;
     position: fixed;
-    z-index: 1;
-    
+    top: 0;
+    left: 0;
+    align-items: center;
+    z-index: 1;   
+}
+
+.popup__button-close{
+    position: relative;
+    margin-left: 455px;
+    margin-bottom: 11px;
+    cursor: pointer;
 }
 
 .popup__container{
     max-width: 430px;
     background-color: #fff;
-    z-index: 2;
+    box-shadow: 0px 0px 25px 0px #00000026;
+    border-radius: 5px;
+    padding: 30px;
+    color:#C4C4C4;
 }
 
-.popup__input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.popup__title{
+    margin: 0 ;
+    margin-bottom: 50px;
+    color: #000;
+    max-width: 330px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 1px;
+}
 
+.popup__field{
+    border-style:none;
+    margin-bottom: 35px;
+    padding: 0;
+    outline: none;
+    
+}
+.popup__input{
+    outline-style:none ;
+    width: 358px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid #C4C4C4;
+    padding-bottom: 8px;
+    
+}
+
+.popup__button-submit{
+    width: 358px;
+    border: 1px solid #C4C4C4;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #C4C4C4;
+}
+
+.popup__button-submit:hover{
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
 }
