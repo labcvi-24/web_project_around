@@ -37,6 +37,10 @@ body{
     align-items: center;
 }
 
+.popup{
+    display: none;
+}
+
 .profile__photo{
     width: 120px;
     padding-right: 32px;
@@ -51,7 +55,7 @@ body{
     margin: 0;
 }
 
-.profile__text_small{    
+.profile__about{    
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
