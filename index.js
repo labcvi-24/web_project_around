@@ -17,15 +17,16 @@ function handleProfileFormSubmit(evt){
     evt.preventDefault();
 
     let nameInput = content.querySelector(".popup__input_name")
+    let jobInput = content.querySelector(".popup__input_job")
 
-    let jobInput = content.querySelector(".popup__input_job") 
-
+    let profileName = content.querySelector(".profile__user_name") 
+    let profileAbout = content.querySelector(".profile__about")
+    
+    profileName.textContent = nameInput.value;
+    profileAbout.textContent = jobInput.value;
 }
+popupForm.addEventListener('submit', handleProfileFormSubmit);
 
-
-popupForm.addEventListener('submit', handleProfileFormSubmit);{
-
-}
 
 function handleOpenPopup(){
     popup.classList.add("popup_opened");
