@@ -16,7 +16,49 @@
             <img class="header__logo" src="./images/logo.png" alt="logo">
             <img class="header__line" src="./images/Line.png" >
         </header>
+        <main class="content">
+            <section class="profile">
+                <div class="profile__user">
+                    <img class="profile__photo" src="./images/Avatar.png" alt="foto de perfil">
+                    <div class="profile-user">
+                        <p class="profile__user_name">Jacques Cousteau</p>
+                        <span class="profile__about">Explorador</span>
+                    </div>  
+                    <img  class="profile__button_edit" src="./images/EditButton.png" alt="boton de editar">
+                </div>
+                <div class="popup">
+                    <img  class="popup__button-close" src="./images/iconclose.png" alt="cerrar">
+                    <form class="popup__form">
+                        <legend class="popup__title">Editar Perfil</legend>
+                        <fieldset class="popup__field">
+                            <input type="text"
+                            name="name"
+                            class=" popup__input popup__input_name"
+                            id="name"
+                            placeholder="Nombre"
+                            value="Jacques Cousteau"
+                            required>
+                        </fieldset>
+                        <fieldset class="popup__field">
+                            <input type="text"
+                            name="acerca"
+                            class="popup__input popup__input_job"
+                            id="acerca"
+                            placeholder="Acerca de mi"
+                            value="Explorer"
+                            required>
+                        </fieldset>
+                        <button type="submit" class="popup__button-submit">Guardar</Button>
+                    </form>
+                </div>
+                <div class="profile__button">   
+                    <img class="profile__button_mas" src="./images/Vectormas.png" alt="">
+                    <img class="profile__button_add" src="./images/Rectangle.png" alt="boton de agregar">
+                </div>      
+            </section>
+            
+        </main>
     </div>
-    
+    <script src="./index.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@ body{
     font-family: 'Inter', sans-serif;
     box-sizing: border-box;
     background-color: #000;
+    color:#fff;
 }
 
 .header{
@@ -19,4 +20,61 @@ body{
     width: 173px;
     height: 33px;
     padding-bottom: 5%;
+}
+
+
+.profile{
+    max-width: 880px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    
+}
+
+.profile__user{
+    display: flex;
+    align-items: center;
+}
+
+.popup{
+    display: none;
+}
+
+.profile__photo{
+    width: 120px;
+    padding-right: 32px;
+}
+
+.profile__user_name{
+    display: flex;
+    flex-direction: column;   
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    margin: 0;
+}
+
+.profile__about{    
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    margin-top: 10px;
+}
+
+.profile__button_edit{
+    margin: 0 0 20px 10px;
+}
+
+.profile__button{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.profile__button_mas{
+    position: absolute;  
 }
