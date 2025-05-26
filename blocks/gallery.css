@@ -1,0 +1,68 @@
+.gallery{
+    max-width: 880px;
+    margin: 60px auto;
+}
+
+.gallery_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    
+}
+
+.gallery__valle{
+    width: 282px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+
+.gallery__group{
+    background-color: #fff;
+    width: 282px;
+    color: #000;
+    border-radius: 10px;
+}
+
+.gallery__description{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+    align-items: center;
+}
+
+.gallery__name{
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -1px;
+}
+.gallery__like{
+    background: url(../images/Group.svg);
+    width: 21px;
+    height: 19px;
+    cursor: pointer;
+    border: none;
+}
+
+.gallery__like:hover{
+    opacity: 50%;
+}
+
+.gallery__like:active{
+    background: url(../images/Union.png);
+}
+
+
+@media (min-width:320px) and (max-width: 476px) {
+    .gallery_grid{
+        grid-template-columns: 1fr;
+    }
+
+    
+    .gallery{
+
+    max-width: 282px;
+    }
+}
