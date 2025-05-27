@@ -1,27 +1,27 @@
-let content = document.querySelector(".content");
+const content = document.querySelector(".content");
 
-let profileButton = content.querySelector(".profile__button_edit")
-
-
-let popupClose = content.querySelector(".popup__button-close")
+const profileButton = content.querySelector(".profile__button_edit")
 
 
-let popup = content.querySelector(".popup")
+const popupClose = content.querySelector(".popup__button-close")
 
 
-let popupForm = content.querySelector(".popup__form")
+const popup = content.querySelector(".popup")
+
+
+const popupForm = content.querySelector(".popup__form")
 
 
 
 function handleProfileFormSubmit(evt){
     evt.preventDefault();
 
-    let nameInput = content.querySelector(".popup__input_name")
-    let jobInput = content.querySelector(".popup__input_job")
+    const nameInput = content.querySelector(".popup__input_name")
+    const jobInput = content.querySelector(".popup__input_job")
 
-    let profileName = content.querySelector(".profile__user_name") 
-    let profileAbout = content.querySelector(".profile__about")
-    
+    const profileName = content.querySelector(".profile__user_name")
+    const profileAbout = content.querySelector(".profile__about")
+
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
 }
@@ -30,7 +30,7 @@ popupForm.addEventListener('submit', handleProfileFormSubmit);
 
 function handleOpenPopup(){
     popup.classList.add("popup_opened");
-    
+
 }
 profileButton.addEventListener("click", handleOpenPopup);
 
