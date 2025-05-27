@@ -3,22 +3,22 @@
     margin: 60px auto;
 }
 
-.gallery_grid{
+.gallery__grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    
+
 }
 
-.gallery__valle{
+.gallery__grid_photo_valle{
     width: 282px;
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    
+
 }
 
-.gallery__group{
+.gallery__grid_card{
     background-color: #fff;
     width: 282px;
     color: #000;
@@ -32,13 +32,13 @@
     align-items: center;
 }
 
-.gallery__name{
+.gallery__description_name{
     font-weight: 900;
     font-size: 24px;
     line-height: 100%;
     letter-spacing: -1px;
 }
-.gallery__like{
+.gallery__description_like{
     background: url(../images/Group.svg);
     width: 21px;
     height: 19px;
@@ -60,7 +60,7 @@
         grid-template-columns: 1fr;
     }
 
-    
+
     .gallery{
 
     max-width: 282px;

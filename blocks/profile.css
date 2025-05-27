@@ -13,24 +13,32 @@
 }
 
 
-.profile__photo{
+.profile__user_photo{
     width: 120px;
     padding-right: 32px;
 }
 
-.profile__content{
+.profile__data_content{
     display: flex;
     align-items: center;
 }
 
-.profile__user_name{
+.profile__data_name{
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
     margin: 0;
 }
 
-.profile__about{
+.profile__data_edit{
+    margin-left: 15px;
+    cursor:pointer;
+}
+.profile__data_edit:hover{
+  opacity: 50%;
+}
+
+.profile__data_about{
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
@@ -38,13 +46,6 @@
     margin-top: 15px;
 }
 
-.profile__button_edit{
-    margin-left: 15px;
-    cursor:pointer;
-}
-.profile__button_edit:hover{
-  opacity: 50%;
-}
 
 .profile__button{
     width: 150px;
@@ -71,7 +72,7 @@
 
 
 @media (min-width: 320px) and (max-width:476px){
-    .profile__content{
+    .profile__data_content{
         margin-top: 35px;
     }
     .profile{
@@ -86,7 +87,7 @@
         margin-top: 20px;
     }
 
-    .profile-user{
+    .profile__data{
         display: flex;
         flex-direction: column;
         justify-content: center;

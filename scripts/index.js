@@ -1,6 +1,6 @@
 const content = document.querySelector(".content");
 
-const profileButton = content.querySelector(".profile__button_edit")
+const profileButton = content.querySelector(".profile__data_edit")
 
 
 const popupClose = content.querySelector(".popup__button-close")
@@ -19,8 +19,8 @@ function handleProfileFormSubmit(evt){
     const nameInput = content.querySelector(".popup__input_name")
     const jobInput = content.querySelector(".popup__input_job")
 
-    const profileName = content.querySelector(".profile__user_name")
-    const profileAbout = content.querySelector(".profile__about")
+    const profileName = content.querySelector(".profile__data_name")
+    const profileAbout = content.querySelector(".profile__data_about")
 
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
