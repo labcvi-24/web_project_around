@@ -13,32 +13,32 @@
 }
 
 
-.profile__user_photo{
+.profile__photo{
     width: 120px;
     padding-right: 32px;
 }
 
-.profile__data_content{
+.profile__data{
     display: flex;
     align-items: center;
 }
 
-.profile__data_name{
+.profile__name{
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
     margin: 0;
 }
 
-.profile__data_edit{
+.profile__button-edit{
     margin-left: 15px;
     cursor:pointer;
 }
-.profile__data_edit:hover{
+.profile__button-edit:hover{
   opacity: 50%;
 }
 
-.profile__data_about{
+.profile__data-about{
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
@@ -60,7 +60,7 @@
 }
 
 
-.profile__button_add{
+.profile__button-add{
     background: url(../images/Vectormas.png);
     border: none;
     width: 22px;
@@ -72,7 +72,7 @@
 
 
 @media (min-width: 320px) and (max-width:476px){
-    .profile__data_content{
+    .profile__data{
         margin-top: 35px;
     }
     .profile{
@@ -87,18 +87,18 @@
         margin-top: 20px;
     }
 
-    .profile__data{
+    .profile__content{
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    .profile__about{
+    .profile__data-about{
         font-size: 14px;
         text-align: center;
 
     }
-    .profile__user_name{
+    .profile__name{
         font-weight: 500;
         font-size: 22px;
         line-height: 100%;
@@ -106,7 +106,7 @@
         text-align: center;
     }
 
-    .profile__button_edit{
+    .profile__button-edit{
         width: 18px;
         height: 18px;
         object-fit: cover;
@@ -116,9 +116,5 @@
         margin-top: 30px;
     }
 
-    .profile__button_rectangle{
-        width: 282px;
-        height: 50px;
-    }
 
 }

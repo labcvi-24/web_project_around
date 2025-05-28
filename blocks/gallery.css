@@ -10,7 +10,7 @@
 
 }
 
-.gallery__grid_photo_valle{
+.gallery__photo_valle{
     width: 282px;
     object-fit: cover;
     border-top-left-radius: 10px;
@@ -18,7 +18,7 @@
 
 }
 
-.gallery__grid_card{
+.gallery__card{
     background-color: #fff;
     width: 282px;
     color: #000;
@@ -32,13 +32,13 @@
     align-items: center;
 }
 
-.gallery__description_name{
+.gallery__name{
     font-weight: 900;
     font-size: 24px;
     line-height: 100%;
     letter-spacing: -1px;
 }
-.gallery__description_like{
+.gallery__button-like{
     background: url(../images/Group.svg);
     width: 21px;
     height: 19px;
@@ -46,17 +46,17 @@
     border: none;
 }
 
-.gallery__like:hover{
+.gallery__button-like:hover{
     opacity: 50%;
 }
 
-.gallery__like:active{
+.gallery__button-like:active{
     background: url(../images/Union.png);
 }
 
 
 @media (min-width:320px) and (max-width: 476px) {
-    .gallery_grid{
+    .gallery__grid{
         grid-template-columns: 1fr;
     }
 
