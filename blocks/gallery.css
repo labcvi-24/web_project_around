@@ -10,14 +10,6 @@
 
 }
 
-.gallery__photo_valle{
-    width: 282px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-
-}
-
 .gallery__card{
     background-color: #fff;
     width: 282px;
@@ -25,18 +17,30 @@
     border-radius: 10px;
 }
 
+.gallery__photo_valle{
+    width: 282px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 .gallery__description{
     display: flex;
     justify-content: space-between;
     margin: 0 15px;
     align-items: center;
+
 }
 
 .gallery__name{
+    max-width: 246px;
     font-weight: 900;
     font-size: 24px;
     line-height: 100%;
     letter-spacing: -1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .gallery__button-like{
     background: url(../images/Group.svg);
