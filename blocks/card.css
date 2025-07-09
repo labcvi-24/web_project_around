@@ -1,30 +1,40 @@
-.gallery{
-    max-width: 880px;
-    margin: 60px auto;
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 880px;
+  margin: 60px auto;
+  gap: 15px;
 }
 
-.gallery__grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-
-}
-
-.gallery__card{
+.card{
     background-color: #fff;
     width: 282px;
     color: #000;
     border-radius: 10px;
+    position: relative;
 }
 
-.gallery__photo_valle{
+.card__button-trash{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  right: 7px;
+  top: 8px;
+}
+
+.card__remove{
+  width: 100%;
+}
+.card__photo{
     width: 282px;
+    height: 375px;
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.gallery__description{
+
+.card__description{
     display: flex;
     justify-content: space-between;
     margin: 0 15px;
@@ -32,8 +42,8 @@
 
 }
 
-.gallery__name{
-    max-width: 246px;
+.card__name{
+    max-width: 226px;
     font-weight: 900;
     font-size: 24px;
     line-height: 100%;
@@ -42,31 +52,26 @@
     white-space: nowrap;
     overflow: hidden;
 }
-.gallery__button-like{
-    background: url(../images/Group.svg);
+.card__button-like{
+    background-image: url(../images/Group.svg);
     width: 21px;
     height: 19px;
     cursor: pointer;
     border: none;
 }
 
-.gallery__button-like:hover{
+.card__button-like:hover{
     opacity: 50%;
 }
 
-.gallery__button-like:active{
-    background: url(../images/Union.png);
+.card__button-like_active{
+    background-image: url(../images/Union.png);
 }
 
 
 @media (min-width:320px) and (max-width: 476px) {
-    .gallery__grid{
-        grid-template-columns: 1fr;
-    }
-
-
-    .gallery{
-
-    max-width: 282px;
-    }
+  .cards{
+  max-width: 282px;
+  grid-template-columns: 1fr;
+  }
 }

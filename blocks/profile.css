@@ -55,20 +55,20 @@
 }
 
 
-.profile__button{
+.profile__button-add{
     width: 150px;
     height: 50px;
     display: flex;
     border: 1px solid #fff;
 }
 
-.profile__button:hover{
+.profile__button-add:hover{
     opacity: 50%;
 
 }
 
 
-.profile__button-add{
+.profile__button{
     background: url(../images/Vectormas.png);
     border: none;
     width: 22px;
