@@ -11,100 +11,100 @@
     <title>Around the US</title>
 </head>
 <body>
-  <div class="page">
-    <header class="header">
-      <img class="header__logo" src="./images/logo.png" alt="logo">
-      <div class="header__line"></div>
-    </header>
-    <main class="content">
-      <section class="profile">
-        <div class="profile__user">
-          <img class="profile__photo" src="./images/Avatar.png" alt="foto de perfil">
-        <div class="profile__content">
-          <div class="profile__data">
-            <p class="profile__name">Jacques Cousteau</p>
-            <img class="profile__button-edit" src="./images/EditButton.png" alt="boton de editar">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.png" alt="logo">
+            <div class="header__line"></div>
+        </header>
+        <main class="content">
+          <section class="profile">
+            <div class="profile__user">
+              <img class="profile__photo" src="./images/Avatar.png" alt="foto de perfil">
+              <div class="profile__content">
+                <div class="profile__data">
+                  <p class="profile__name">Jacques Cousteau</p>
+                  <img class="profile__button-edit" src="./images/EditButton.png" alt="boton de editar">
+                </div>
+                <p class="profile__data-about">Explorador</p>
+              </div>
+            </div>
+            <div class="profile__button-add">
+              <button class="profile__button"></button>
+            </div>
+            <div class="popupadd" >
+              <img class="popupadd__close" src="./images/iconclose.png" alt="cerrar">
+              <!-- formulario nuevo lugar -->
+              <form class="popupadd__form">
+                <h2 class="popupadd__title">Nuevo lugar</h2>
+                <fieldset class="popupadd__field">
+                  <input type="text"
+                  name="titulo"
+                  class="popupadd__input"
+                  id="popup-title"
+                  placeholder="Titulo"
+                  value=""
+                  required>
+                  <input type="url"
+                  name="url"
+                  class=" popupadd__input"
+                  id="popup-url"
+                  placeholder="Enlace"
+                  value=""
+                  required>
+                </fieldset>
+                <button type="submit" class="popupadd__submit">Agregar</Button>
+              </form>
+            </div>
+            <!-- formulario editar perfil -->
+            <div class ="popup">
+              <img  class="popup__button-close" src="./images/iconclose.png" alt="cerrar">
+              <form class="popup__form">
+                <h2 class="popup__title">Editar Perfil</h2>
+                <fieldset class="popup__field">
+                  <input type="text"
+                  name="name"
+                  class=" popup__input popup__input_name"
+                  id="name"
+                  placeholder="Nombre"
+                  value="Jacques Cousteau"
+                  required>
+                  <input type="text"
+                  name="acerca"
+                  class="popup__input popup__input_job"
+                  id="acerca"
+                  placeholder="Acerca de mi"
+                  value="Explorer"
+                  required>
+                </fieldset>
+                <button type="submit" class="popup__button-submit">Guardar</Button>
+              </form>
+            </div>
+          </section>
+          <section class="cards"></section>
+          <footer class="footer">
+            <p class="footer__copyrigth">&#169; 2025 Around The U.S.</p>
+          </footer>
+        </main>
+        <template id="template-card">
+          <div class="card">
+            <button class="card__button-trash">
+              <img class= "card__remove" src="./images/basura.png" alt="remove">
+            </button>
+            <img class="card__photo" src="" alt="imagen del lugar">
+            <div class="card__description">
+              <h2 class="card__name"></h2>
+              <button class="card__button-like"></button>
+            </div>
           </div>
-          <p class="profile__data-about">Explorador</p>
+        </template>
+        <div class="popup-image">
+          <div class="popup-image__container">
+            <img src="./images/iconclose.png" alt="cerrar" class="popup-image__close">
+            <img src="./images/montañacalva.jpg" alt="" class="popup-image__photo">
+            <p class="popup-image__caption"> Lagos de Braies</p>
+          </div>
         </div>
-        </div>
-        <div class="profile__button-add">
-          <button class="profile__button"></button>
-        </div>
-        <div class="popupadd" >
-          <img class="popupadd__close" src="./images/iconclose.png" alt="cerrar">
-          <!-- formulario nuevo lugar -->
-          <form class="popupadd__form">
-            <h2 class="popupadd__title">Nuevo lugar</h2>
-            <fieldset class="popupadd__field">
-              <input type="text"
-              name="titulo"
-              class="popupadd__input"
-              id="popup-title"
-              placeholder="Titulo"
-              value=""
-              required>
-              <input type="url"
-              name="url"
-              class=" popupadd__input"
-              id="popup-url"
-              placeholder="Enlace"
-              value=""
-              required>
-            </fieldset>
-            <button type="submit" class="popupadd__submit">Agregar</Button>
-          </form>
-        </div>
-        <!-- formulario editar perfil -->
-        <div class ="popup">
-          <img  class="popup__button-close" src="./images/iconclose.png" alt="cerrar">
-          <form class="popup__form">
-            <h2 class="popup__title">Editar Perfil</h2>
-            <fieldset class="popup__field">
-              <input type="text"
-              name="name"
-              class=" popup__input popup__input_name"
-              id="name"
-              placeholder="Nombre"
-              value="Jacques Cousteau"
-              required>
-              <input type="text"
-              name="acerca"
-              class="popup__input popup__input_job"
-              id="acerca"
-              placeholder="Acerca de mi"
-              value="Explorer"
-              required>
-            </fieldset>
-            <button type="submit" class="popup__button-submit">Guardar</Button>
-          </form>
-        </div>
-      </section>
-      <section class="cards"></section>
-      <footer class="footer">
-        <p class="footer__copyrigth">&#169; 2025 Around The U.S.</p>
-      </footer>
-    </main>
-    <template id="template-card">
-      <div class="card">
-        <button class="card__button-trash">
-          <img class= "card__remove" src="./images/basura.png" alt="remove">
-        </button>
-        <img class="card__photo" src="" alt="imagen del lugar">
-        <div class="card__description">
-          <h2 class="card__name"></h2>
-          <button class="card__button-like"></button>
-        </div>
-      </div>
-    </template>
-    <div class="popup-image">
-      <div class="popup-image__container">
-        <img src="./images/iconclose.png" alt="cerrar" class="popup-image__close">
-        <img src="./images/montañacalva.jpg" alt="" class="popup-image__photo">
-        <p class="popup-image__caption"> Lagos de Braies</p>
-      </div>
     </div>
-  </div>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
