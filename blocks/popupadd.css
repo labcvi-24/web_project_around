@@ -21,6 +21,12 @@
     margin-left: 455px;
     margin-bottom: 11px;
     cursor: pointer;
+    width: 40px;
+}
+
+.popupadd__close:hover{
+  opacity: 50%;
+  cursor: pointer;
 }
 
 .popupadd__form{
@@ -29,7 +35,8 @@
     box-shadow: 0px 0px 25px 0px #00000026;
     border-radius: 5px;
     padding: 30px;
-    color:#C4C4C4;
+    color: rgba(196, 196, 196, 1);
+;
 }
 
 .popupadd__title{
@@ -71,4 +78,33 @@
     border-radius: 3px;
     cursor: pointer;
     color: #C4C4C4;
+    font-size: 14px;
+}
+
+.popupadd__submit:hover{
+  cursor: pointer;
+  opacity: 80%;
+}
+
+
+@media (min-width: 320px) and (max-width:568px){
+  .popupadd__form{
+    max-width: 282px;
+  }
+  .popupadd__title{
+    font-size: 18px;
+  }
+
+  .popupadd__input{
+    width: 278px;
+  }
+
+  .popupadd__submit{
+    width: 282px;
+  }
+
+  .popupadd__close{
+    margin-left: 306px;
+    width: 26px;
+  }
 }

@@ -39,10 +39,28 @@
 
 .popup-image__close {
   position: absolute;
-  top: -33px;
-  right: -26px;
-  width: 25px;
-  height: 25px;
+  top: -49px;
+  right: -47px;
+  width: 40px;
   cursor: pointer;
+
+}
+
+@media (min-width: 320px) and (max-width:568px){
+  .popup-image__photo{
+    width: 240px;
+    height: 299px;
+    object-fit: cover;
+
+  }
+  .popup-image__caption{
+    font-size: 12px;
+  }
+
+  .popup-image__close{
+    width: 30px;
+    top:-39px;
+    right:-32px;
+  }
 
 }

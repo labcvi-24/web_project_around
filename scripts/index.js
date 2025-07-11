@@ -126,6 +126,9 @@ function handleProfileFormSubmit(evt){
     profileAbout.textContent = jobInput.value;
 
     handleClosePopup();
+
+    nameInput.value = "";
+    jobInput.value = "";
 }
 
 popupForm.addEventListener('submit', handleProfileFormSubmit);

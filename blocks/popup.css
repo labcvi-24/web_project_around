@@ -17,6 +17,7 @@
 
 .popup__button-close{
     position: relative;
+    width: 40px;
     margin-left: 455px;
     margin-bottom: 11px;
     cursor: pointer;
@@ -96,15 +97,15 @@
     }
 
     .popup__input{
-        max-width: 238px;
+        max-width: 277px;
     }
 
     .popup__button-submit{
-        width: 238px;
+        width: 282px;
     }
 
     .popup__button-close{
-        margin-left: 237px;
+        margin-left: 297px;
         width: 26px;
     }
 

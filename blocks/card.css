@@ -58,6 +58,7 @@
     height: 19px;
     cursor: pointer;
     border: none;
+    background-color: #fff;
 }
 
 .card__button-like:hover{
