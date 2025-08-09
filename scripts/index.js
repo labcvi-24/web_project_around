@@ -60,17 +60,23 @@ function createCard(title, link){
   const popupCaption = popupImage.querySelector(".popup-image__caption");
   const popupImageClose = popupImage.querySelector(".popup-image__close");
 
-    popupImage.addEventListener("click", function(){
+  popupImage.addEventListener("click", function (event) {
+  if (event.target === popupImage) {
     popupImage.style.display = "none";
+  }
+});
+
+  popup.addEventListener("click", function(event){
+    if (event.target === popup) {
+      popup.classList.remove("popup_opened");
+    }
   });
 
-  popup.addEventListener("click", function(){
-    popup.classList.remove("popup_opened");
-  } );
-
-  popupAdd.addEventListener("click", function(){
+  popupAdd.addEventListener("click", function (event) {
+  if (event.target === popupAdd) {
     popupAdd.classList.remove("popup_opened-add");
-  });
+  }
+});
 
   // Escuchar el evento de teclado:
 document.addEventListener('keydown', function(event) {
