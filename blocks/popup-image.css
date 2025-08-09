@@ -1,4 +1,4 @@
-.popup-image {
+#popup-image {
   display: none;
   position: fixed;
   top: 0;
@@ -13,6 +13,14 @@
 
 .popup-image__open{
   display: flex;
+}
+
+.popup-image__close {
+  position: absolute;
+  top: -49px;
+  right: -47px;
+  width: 40px;
+  cursor: pointer;
 }
 
 
@@ -35,16 +43,10 @@
   color: white;
   font-size: 18px;
   text-align: left;
+  margin-bottom: 0;
 }
 
-.popup-image__close {
-  position: absolute;
-  top: -49px;
-  right: -47px;
-  width: 40px;
-  cursor: pointer;
 
-}
 
 @media (min-width: 320px) and (max-width:568px){
   .popup-image__photo{

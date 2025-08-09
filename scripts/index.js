@@ -1,18 +1,17 @@
 const content = document.querySelector(".content")
 const profileButton = content.querySelector(".profile__button-edit")
-const popupClose = content.querySelector(".popup__button-close")
-const popup = content.querySelector(".popup")
-const popupForm = content.querySelector(".popup__form")
+const popupClose = content.querySelector("#popupEdit-close")
+const popup = content.querySelector("#popup-edit")
+const popupForm = content.querySelector("#form-edit")
 const templateCard = document.querySelector("#template-card")
 const sectionCards = document.querySelector(".cards")
-const popupAdd = document.querySelector(".popupadd")
-const popupAddForm = document.querySelector(".popupadd__form")
-const inputAdd = document.querySelector("#popup-title")
-const inputEnlaceAdd = document.querySelector("#popup-url")
-const addButton = document.querySelector(".profile__button-add")
-const closeAdd = document.querySelector(".popupadd__close")
-
-
+const popupAdd = document.querySelector("#popup-add")
+const popupAddForm = document.querySelector("#form-add")
+const inputAdd = document.querySelector("#title-input")
+const inputEnlaceAdd = document.querySelector("#url-input")
+const addButton = document.querySelector("#button-add")
+const closeAdd = document.querySelector("#popupadd-close")
+const popupWindow = content.querySelector(".popup")
 
 //proyecto 8
 
@@ -43,11 +42,8 @@ const initialCards = [
   }
 ];
 
-
 initialCards.forEach(function (item) {
   createCard(item.name, item.link);
-
-
 });
 
 function createCard(title, link){
@@ -59,10 +55,31 @@ function createCard(title, link){
   cardTitulo.textContent = title;
   cardPhoto.src = link;
   cardPhoto.alt = title;
-  const popupImage = document.querySelector(".popup-image");
+  const popupImage = document.querySelector("#popup-image");
   const popupPhoto = popupImage.querySelector(".popup-image__photo");
   const popupCaption = popupImage.querySelector(".popup-image__caption");
   const popupImageClose = popupImage.querySelector(".popup-image__close");
+
+    popupImage.addEventListener("click", function(){
+    popupImage.style.display = "none";
+  });
+
+  popup.addEventListener("click", function(){
+    popup.classList.remove("popup_opened");
+  } );
+
+  popupAdd.addEventListener("click", function(){
+    popupAdd.classList.remove("popup_opened-add");
+  });
+
+  // Escuchar el evento de teclado:
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    popupAdd.classList.remove("popup_opened-add");
+    popup.classList.remove("popup_opened");
+    popupImage.style.display = "none";
+  }
+});
 
   likeButton.addEventListener("click", function () {
     likeButton.classList.toggle("card__button-like_active");
@@ -83,39 +100,35 @@ function createCard(title, link){
 popupImageClose.addEventListener("click", function () {
   popupImage.style.display = "none";
 });
-
   sectionCards.append(tarjeta);
-
   return tarjeta;
-
 }
 
 
 function handleOpenPopup() {
-    popup.classList.add("popup__opened");
+    popup.classList.add("popup_opened");
 }
 profileButton.addEventListener("click", handleOpenPopup);
 
 function handleAddPopup() {
-    popupAdd.classList.add("popupAdd__opened");
+    popupAdd.classList.add("popup_opened-add");
 }
 addButton.addEventListener("click", handleAddPopup);
 
 
 function handleClosePopup(){
-    popup.classList.remove("popup__opened");
+    popup.classList.remove("popup_opened");
 }
 popupClose.addEventListener("click",handleClosePopup);
 
 function handleAddclosePopup(){
-  popupAdd.classList.remove("popupAdd__opened");
+  popupAdd.classList.remove("popup_opened-add");
 }
 closeAdd.addEventListener("click", handleAddclosePopup);
 
 
 function handleProfileFormSubmit(evt){
     evt.preventDefault();
-
     const nameInput = content.querySelector(".popup__input_name")
     const jobInput = content.querySelector(".popup__input_job")
 
@@ -130,29 +143,21 @@ function handleProfileFormSubmit(evt){
     nameInput.value = "";
     jobInput.value = "";
 }
-
 popupForm.addEventListener('submit', handleProfileFormSubmit);
-
 
 
 function handleNewPlaceSubmit(event){
   event.preventDefault();
-
   const cardName = inputAdd.value;
   const cardUrl = inputEnlaceAdd.value;
-
-
   const newCardElement = createCard(cardName, cardUrl);
 
   sectionCards.prepend(newCardElement);
-
   handleAddclosePopup();
 
   inputAdd.value = "";
   inputEnlaceAdd.value = "";
-
-
-
 }
+
 popupAddForm.addEventListener('submit', handleNewPlaceSubmit);
 
