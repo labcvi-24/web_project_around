@@ -46,7 +46,6 @@
     max-width: 226px;
     font-weight: 900;
     font-size: 24px;
-    line-height: 100%;
     letter-spacing: -1px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -60,6 +59,7 @@
     border: none;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #fff;
 }
 
 .card__button-like:hover{

@@ -111,7 +111,7 @@
 
 @media ( min-width:320px) and (max-width:476px) {
     .popup__form{
-        max-width: 282px;
+        max-width: 265px;
         padding: 65px 23px;
         display: flex;
         flex-direction: column;
@@ -126,7 +126,7 @@
     }
 
     .popup__button-submit{
-        width: 282px;
+        width: 265px;
     }
 
     .popup__button-close{
