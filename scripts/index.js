@@ -1,4 +1,4 @@
-import Card from "./scripts/Card.js";
+import Card from "../pages/Card.js";
 
 const popupImage = document.querySelector("#popup-image");
 const popupPhoto = popupImage.querySelector(".popup-image__photo");
@@ -10,7 +10,7 @@ const profileButton = content.querySelector(".profile__button-edit")
 const popupCloseEdit = content.querySelector("#popupEdit-close")
 const popupEdit = content.querySelector("#popup-edit")
 const popupForm = content.querySelector("#form-edit")
-const templateCard = document.querySelector("#template-card")
+const sectionCards = document.querySelector(".cards")
 
 const popupAdd = document.querySelector("#popup-add")
 const popupAddForm = document.querySelector("#form-add")
@@ -18,7 +18,6 @@ const inputAdd = document.querySelector("#title-input")
 const inputEnlaceAdd = document.querySelector("#url-input")
 const addButton = document.querySelector("#button-add")
 const closeAdd = document.querySelector("#popupadd-close")
-const popupWindow = content.querySelector(".popup")
 
 const initialCards = [
   {
@@ -47,21 +46,16 @@ const initialCards = [
   }
 ];
 
-
-const sectionCards = document.querySelector(".cards")
-
   function handleImageClick(name, link) {
-  popupPhoto.src = link;
   popupPhoto.alt = name;
+  popupPhoto.src = link;
   popupCaption.textContent = name;
   popupImage.style.display = "flex";
 }
 
-
-
 initialCards.forEach((item) => {
-  const card = new Card(item, "#template-card", handleImageClick);
-  const cardElement = card.generateCard();
+  const card = new Card(item.name, item.link, "#template-card", handleImageClick);
+  const cardElement = card.createCard();
   sectionCards.append(cardElement);
 });
 
@@ -70,7 +64,7 @@ function handleNewPlaceSubmit(event){
   const cardName = inputAdd.value;
   const cardUrl = inputEnlaceAdd.value;
   const newCard = new Card({ name: cardName, link: cardUrl }, "#template-card", handleImageClick);
-  const newCardElement = newCard.generateCard();
+  const newCardElement = newCard.createCard();
 
   sectionCards.prepend(newCardElement);
   handleAddclosePopup();
