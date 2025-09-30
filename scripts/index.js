@@ -1,4 +1,16 @@
 import Card from "../pages/Card.js";
+import FormValidator from "../pages/FormValidator.js";
+import {
+  handleOpenPopup,
+  handleAddPopup,
+  handleClosePopup,
+  handleAddclosePopup,
+  handleProfileFormSubmit,
+  handleOverlayClose,
+  handleEscClose
+} from "../pages/Utils.js";
+
+
 
 const popupImage = document.querySelector("#popup-image");
 const popupPhoto = popupImage.querySelector(".popup-image__photo");
@@ -18,6 +30,8 @@ const inputAdd = document.querySelector("#title-input")
 const inputEnlaceAdd = document.querySelector("#url-input")
 const addButton = document.querySelector("#button-add")
 const closeAdd = document.querySelector("#popupadd-close")
+
+
 
 const initialCards = [
   {
@@ -75,113 +89,89 @@ function handleNewPlaceSubmit(event){
 
 popupAddForm.addEventListener('submit', handleNewPlaceSubmit);
 
-// initialCards.forEach(function (item) {
-//   createCard(item.name, item.link);
-// });
-
-// function createCard(title, link){
-//   const tarjeta = templateCard.content.cloneNode(true).querySelector(".card");
-//   const cardTitulo = tarjeta.querySelector(".card__name");
-//   const cardPhoto = tarjeta.querySelector(".card__photo");
-//   const likeButton = tarjeta.querySelector(".card__button-like");
-//   const deleteButton = tarjeta.querySelector(".card__remove");
-//   cardTitulo.textContent = title;
-//   cardPhoto.src = link;
-//   cardPhoto.alt = title;
-
-
-//   popupImage.addEventListener("click", function (event) {
-//   if (event.target === popupImage) {
-//     popupImage.style.display = "none";
-//   }
-//   });
-
-  popupEdit.addEventListener("click", function(event){
-    if (event.target === popup) {
-      popup.classList.remove("popup_opened");
-    }
-  });
-
-  popupAdd.addEventListener("click", function (event) {
-  if (event.target === popupAdd) {
-    popupAdd.classList.remove("popup_opened-add");
-  }
-  });
-
-  // Escuchar el evento de teclado:
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      popupAdd.classList.remove("popup_opened-add");
-      popup.classList.remove("popup_opened");
-      popupImage.style.display = "none";
-  }
-  });
-
-  // likeButton.addEventListener("click", function () {
-  //   likeButton.classList.toggle("card__button-like_active");
-  // });
-
-  // deleteButton.addEventListener("click", function () {
-  //   tarjeta.remove();
-  // });
-
-
-  // cardPhoto.addEventListener("click", function () {
-
-  //   popupPhoto.src = link;
-  //   popupPhoto.alt = title;
-  //   popupCaption.textContent = title;
-  //   popupImage.style.display = "flex";
-  // });
-
   popupImageClose.addEventListener("click", function () {
     popupImage.style.display = "none";
   });
-  // sectionCards.append(tarjeta);
-  // return tarjeta;
 
 
+const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: "button[type='submit']",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
 
-function handleOpenPopup() {
-    popupEdit.classList.add("popup_opened");
-}
-profileButton.addEventListener("click", handleOpenPopup);
+};
 
-function handleAddPopup() {
-    popupAdd.classList.add("popup_opened-add");
-}
-addButton.addEventListener("click", handleAddPopup);
+const editProfileValidator = new FormValidator(settings, popupEdit);
+editProfileValidator.enableValidation();
+
+const addCardValidator = new FormValidator(settings, popupAddForm);
+addCardValidator.enableValidation()
 
 
-function handleClosePopup(){
+// Inicializamos listeners
+handleOpenPopup(profileButton, popupEdit);
+handleAddPopup(addButton, popupAdd);
+handleClosePopup(popupCloseEdit, popupEdit);
+handleAddclosePopup(closeAdd, popupAdd);
+
+// Overlay close
+handleOverlayClose(popupEdit, "popup_opened");
+handleOverlayClose(popupAdd, "popup_opened-add");
+
+// Escape close
+handleEscClose(popupAdd, popupEdit, popupImage);
+
+// Listener para el submit del perfil
+popupForm.addEventListener("submit", (evt) => {
+  handleProfileFormSubmit(evt, content, popupEdit, () => {
     popupEdit.classList.remove("popup_opened");
-}
-popupCloseEdit.addEventListener("click",handleClosePopup);
-
-function handleAddclosePopup(){
-  popupAdd.classList.remove("popup_opened-add");
-}
-closeAdd.addEventListener("click", handleAddclosePopup);
-
-
-function handleProfileFormSubmit(evt){
-    evt.preventDefault();
-    const nameInput = content.querySelector(".popup__input_name")
-    const jobInput = content.querySelector(".popup__input_job")
-
-    const profileName = content.querySelector(".profile__name")
-    const profileAbout = content.querySelector(".profile__data-about")
-
-    profileName.textContent = nameInput.value;
-    profileAbout.textContent = jobInput.value;
-
-    handleClosePopup();
-
-    nameInput.value = "";
-    jobInput.value = "";
-}
-popupForm.addEventListener('submit', handleProfileFormSubmit);
+  });
+});
 
 
 
+
+// function handleProfileFormSubmit(evt){
+//     evt.preventDefault();
+//     const nameInput = content.querySelector(".popup__input_name")
+//     const jobInput = content.querySelector(".popup__input_job")
+
+//     const profileName = content.querySelector(".profile__name")
+//     const profileAbout = content.querySelector(".profile__data-about")
+
+//     profileName.textContent = nameInput.value;
+//     profileAbout.textContent = jobInput.value;
+
+//     handleClosePopup();
+
+//     nameInput.value = "";
+//     jobInput.value = "";
+// }
+// popupForm.addEventListener('submit', handleProfileFormSubmit);
+
+
+
+// popupEdit.addEventListener("click", function(event){
+//   if (event.target === popup) {
+//     popup.classList.remove("popup_opened");
+//   }
+//   });
+
+// popupAdd.addEventListener("click", function (event) {
+//   if (event.target === popupAdd) {
+//     popupAdd.classList.remove("popup_opened-add");
+//   }
+//   });
+
+//   // Escuchar el evento de teclado:
+// document.addEventListener('keydown', function(event) {
+//   if (event.key === 'Escape') {
+//     popupAdd.classList.remove("popup_opened-add");
+//     popupEdit.classList.remove("popup_opened");
+//     popupImage.style.display = "none";
+//   }
+//   });
 
