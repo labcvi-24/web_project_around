@@ -1,13 +1,7 @@
-// export function handleOpenPopup() {
-//   profileButton.addEventListener("click", ()=>{
-//     popupEdit.classList.add("popup_opened");
-//   });
-
 export function handleOpenPopup(profileButton, popupEdit) {
   profileButton.addEventListener("click", () => {
     popupEdit.classList.add("popup_opened");
   });
-
 }
 
 export function handleAddPopup(addButton, popupAdd) {
@@ -22,7 +16,7 @@ export function handleClosePopup(popupCloseEdit, popupEdit) {
   });
 }
 
-export function handleAddclosePopup(closeAdd, popupAdd) {
+export function handleAddClosePopup(closeAdd, popupAdd) {
   closeAdd.addEventListener("click", () => {
     popupAdd.classList.remove("popup_opened-add");
   });
@@ -30,7 +24,7 @@ export function handleAddclosePopup(closeAdd, popupAdd) {
 
 // --- FUNCION PARA SUBMIT PERFIL --- //
 
-export function handleProfileFormSubmit(evt, content, handleClosePopupFn) {
+export function handleProfileFormSubmit(evt, content, handleClosePopup) {
   evt.preventDefault();
 
   const nameInput = content.querySelector(".popup__input_name");
@@ -42,7 +36,7 @@ export function handleProfileFormSubmit(evt, content, handleClosePopupFn) {
   profileName.textContent = nameInput.value;
   profileAbout.textContent = jobInput.value;
 
-  handleClosePopupFn();
+  handleClosePopup();
 
   nameInput.value = "";
   jobInput.value = "";
@@ -57,6 +51,16 @@ export function handleOverlayClose(popup, classNameToRemove) {
   });
 }
 
+//  overlay que oculta mediante style (para popupImage)
+export function handleOverlayCloseByHide(popupImageEl) {
+  popupImageEl.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget){
+      popupImageEl.style.display = "none";
+    }
+  });
+}
+
+
 // --- CERRAR POPUPS CON ESCAPE --- //
 export function handleEscClose(popupAdd, popupEdit, popupImage) {
   document.addEventListener("keydown", (event) => {
@@ -67,24 +71,5 @@ export function handleEscClose(popupAdd, popupEdit, popupImage) {
     }
   });
 }
-
-// export function handleAddPopup() {
-//   addButton.addEventListener("click", ()=>{
-//     popupAdd.classList.add("popup_opened-add");
-//     });
-// }
-
-
-// export handleClosePopup(){
-//   popupCloseEdit.addEventListener("click", ()=>{
-//     popupEdit.classList.remove("popup_opened");
-//     });
-// }
-
-// export function handleAddclosePopup(){
-//   closeAdd.addEventListener("click", ()=>{
-//     popupAdd.classList.remove("popup_opened-add");
-//   });
-// }
 
 

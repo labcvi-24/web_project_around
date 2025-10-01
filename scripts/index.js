@@ -4,10 +4,11 @@ import {
   handleOpenPopup,
   handleAddPopup,
   handleClosePopup,
-  handleAddclosePopup,
+  handleAddClosePopup,
   handleProfileFormSubmit,
   handleOverlayClose,
-  handleEscClose
+  handleOverlayCloseByHide,
+  handleEscClose,
 } from "../pages/Utils.js";
 
 
@@ -77,11 +78,12 @@ function handleNewPlaceSubmit(event){
   event.preventDefault();
   const cardName = inputAdd.value;
   const cardUrl = inputEnlaceAdd.value;
-  const newCard = new Card({ name: cardName, link: cardUrl }, "#template-card", handleImageClick);
+  const newCard = new Card(cardName, cardUrl, "#template-card", handleImageClick);
   const newCardElement = newCard.createCard();
 
   sectionCards.prepend(newCardElement);
-  handleAddclosePopup();
+  popupAdd.classList.remove("popup_opened-add");
+
 
   inputAdd.value = "";
   inputEnlaceAdd.value = "";
@@ -104,7 +106,7 @@ const settings = {
 
 };
 
-const editProfileValidator = new FormValidator(settings, popupEdit);
+const editProfileValidator = new FormValidator(settings, popupForm);
 editProfileValidator.enableValidation();
 
 const addCardValidator = new FormValidator(settings, popupAddForm);
@@ -115,63 +117,21 @@ addCardValidator.enableValidation()
 handleOpenPopup(profileButton, popupEdit);
 handleAddPopup(addButton, popupAdd);
 handleClosePopup(popupCloseEdit, popupEdit);
-handleAddclosePopup(closeAdd, popupAdd);
-
+handleAddClosePopup(closeAdd, popupAdd);
 // Overlay close
 handleOverlayClose(popupEdit, "popup_opened");
 handleOverlayClose(popupAdd, "popup_opened-add");
+
+handleOverlayCloseByHide(popupImage);
 
 // Escape close
 handleEscClose(popupAdd, popupEdit, popupImage);
 
 // Listener para el submit del perfil
 popupForm.addEventListener("submit", (evt) => {
-  handleProfileFormSubmit(evt, content, popupEdit, () => {
+  handleProfileFormSubmit(evt, content, () => {
     popupEdit.classList.remove("popup_opened");
   });
 });
 
-
-
-
-// function handleProfileFormSubmit(evt){
-//     evt.preventDefault();
-//     const nameInput = content.querySelector(".popup__input_name")
-//     const jobInput = content.querySelector(".popup__input_job")
-
-//     const profileName = content.querySelector(".profile__name")
-//     const profileAbout = content.querySelector(".profile__data-about")
-
-//     profileName.textContent = nameInput.value;
-//     profileAbout.textContent = jobInput.value;
-
-//     handleClosePopup();
-
-//     nameInput.value = "";
-//     jobInput.value = "";
-// }
-// popupForm.addEventListener('submit', handleProfileFormSubmit);
-
-
-
-// popupEdit.addEventListener("click", function(event){
-//   if (event.target === popup) {
-//     popup.classList.remove("popup_opened");
-//   }
-//   });
-
-// popupAdd.addEventListener("click", function (event) {
-//   if (event.target === popupAdd) {
-//     popupAdd.classList.remove("popup_opened-add");
-//   }
-//   });
-
-//   // Escuchar el evento de teclado:
-// document.addEventListener('keydown', function(event) {
-//   if (event.key === 'Escape') {
-//     popupAdd.classList.remove("popup_opened-add");
-//     popupEdit.classList.remove("popup_opened");
-//     popupImage.style.display = "none";
-//   }
-//   });
 
