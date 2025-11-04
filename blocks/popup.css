@@ -121,7 +121,7 @@
     }
 
     .popup__input{
-        max-width: 277px;
+        max-width: 245px;
     }
 
     .popup__button-submit{
@@ -132,5 +132,7 @@
         margin-left: 297px;
         width: 26px;
     }
+
+
 
 }

@@ -14,9 +14,9 @@ import {
 
 
 const popupImage = document.querySelector("#popup-image");
-const popupPhoto = popupImage.querySelector(".popup-image__photo");
-const popupCaption = popupImage.querySelector(".popup-image__caption");
-const popupImageClose = popupImage.querySelector(".popup-image__close");
+const popupPhoto = popupImage.querySelector(".popup__photo");
+const popupCaption = popupImage.querySelector(".popup__caption");
+const popupImageClose = popupImage.querySelector(".popup__image-close");
 
 const content = document.querySelector(".content")
 const profileButton = content.querySelector(".profile__button-edit")
