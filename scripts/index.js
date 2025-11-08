@@ -1,5 +1,6 @@
 import Card from "../pages/Card.js";
 import FormValidator from "../pages/FormValidator.js";
+import Section from "../pages/Section.js";
 import {
   handleOpenPopup,
   handleAddPopup,
@@ -68,11 +69,17 @@ const initialCards = [
   popupImage.style.display = "flex";
 }
 
-initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, "#template-card", handleImageClick);
-  const cardElement = card.createCard();
-  sectionCards.append(cardElement);
-});
+const cardList = new Section({
+  items: initialCards,
+  renderer: (item) =>{
+    console.log(item);
+    const card = new Card(item.name, item.link, "#template-card", handleImageClick);
+    const cardElement = card.createCard();
+    cardList.addItem(cardElement);
+  }
+}, ".cards");
+
+cardList.renderItems();
 
 function handleNewPlaceSubmit(event){
   event.preventDefault();
