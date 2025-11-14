@@ -51,7 +51,7 @@ const userInfo = new UserInfo({
   aboutSelector: ".profile__data-about"
 });
 
-// --- Instancia de Popup con Imagen ---
+// Instancia de Popup con Imagen
 const popupWithImage = new PopupWithImage("#popup-image");
 popupWithImage.setEventListeners();
 
@@ -129,4 +129,3 @@ const currentData = userInfo.getUserInfo();
 
 // Actualizar datos después de enviar formulario
 userInfo.setUserInfo({ name: "Luisandra", about: "Desarrolladora Web" });
-
