@@ -1,4 +1,3 @@
-
 export default class Card {
   constructor(name, link, cardTemplete,handleImageClick){
     this._name = name;
@@ -14,7 +13,6 @@ export default class Card {
 
   createCard(){
     this.cardElement = this._getCardElement();
-
     this.cardTitulo = this.cardElement.querySelector(".card__name");
     this.cardImage = this.cardElement.querySelector(".card__photo");
     this.likeButton = this.cardElement.querySelector(".card__button-like");

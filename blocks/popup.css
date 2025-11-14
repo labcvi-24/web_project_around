@@ -16,9 +16,9 @@
   display: flex;
 }
 
-.popup_opened-add{
+/* .popup_opened-add{
   display: flex;
-}
+} */
 
 .popup__button-close{
     position: relative;

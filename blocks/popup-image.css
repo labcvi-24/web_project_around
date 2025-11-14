@@ -11,11 +11,11 @@
   z-index: 10;
 }
 
-.popup-image__open{
+#popup-image.popup_opened{
   display: flex;
 }
 
-.popup__image-close {
+#popup__imagen-close {
   position: absolute;
   top: -49px;
   right: -47px;

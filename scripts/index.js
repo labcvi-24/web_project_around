@@ -1,38 +1,18 @@
 import Card from "../pages/Card.js";
 import FormValidator from "../pages/FormValidator.js";
 import Section from "../pages/Section.js";
-import {
-  handleOpenPopup,
-  handleAddPopup,
-  handleClosePopup,
-  handleAddClosePopup,
-  handleProfileFormSubmit,
-  handleOverlayClose,
-  handleOverlayCloseByHide,
-  handleEscClose,
-} from "../pages/Utils.js";
+import PopupWithForm from "../pages/PopupWithForm.js";
+import PopupWithImage from "../pages/PopupWithImage.js";
+import UserInfo from "../pages/UserInfo.js";
 
-
-
-const popupImage = document.querySelector("#popup-image");
-const popupPhoto = popupImage.querySelector(".popup__photo");
-const popupCaption = popupImage.querySelector(".popup__caption");
-const popupImageClose = popupImage.querySelector(".popup__image-close");
-
-const content = document.querySelector(".content")
-const profileButton = content.querySelector(".profile__button-edit")
-const popupCloseEdit = content.querySelector("#popupEdit-close")
-const popupEdit = content.querySelector("#popup-edit")
-const popupForm = content.querySelector("#form-edit")
-const sectionCards = document.querySelector(".cards")
-
-const popupAdd = document.querySelector("#popup-add")
-const popupAddForm = document.querySelector("#form-add")
-const inputAdd = document.querySelector("#title-input")
-const inputEnlaceAdd = document.querySelector("#url-input")
-const addButton = document.querySelector("#button-add")
-const closeAdd = document.querySelector("#popupadd-close")
-
+  const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: "button[type='submit']",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
+};
 
 
 const initialCards = [
@@ -62,11 +42,22 @@ const initialCards = [
   }
 ];
 
-  function handleImageClick(name, link) {
-  popupPhoto.alt = name;
-  popupPhoto.src = link;
-  popupCaption.textContent = name;
-  popupImage.style.display = "flex";
+
+
+//instancia userinfo
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  aboutSelector: ".profile__data-about"
+});
+
+// --- Instancia de Popup con Imagen ---
+const popupWithImage = new PopupWithImage("#popup-image");
+popupWithImage.setEventListeners();
+
+// --- Función para manejar clic en imagen ---
+function handleImageClick(name, link) {
+  popupWithImage.open(name, link);
 }
 
 const cardList = new Section({
@@ -74,71 +65,68 @@ const cardList = new Section({
   renderer: (item) =>{
     console.log(item);
     const card = new Card(item.name, item.link, "#template-card", handleImageClick);
-    const cardElement = card.createCard();
-    cardList.addItem(cardElement);
+    return card.createCard();
   }
 }, ".cards");
 
 cardList.renderItems();
 
-function handleNewPlaceSubmit(event){
-  event.preventDefault();
-  const cardName = inputAdd.value;
-  const cardUrl = inputEnlaceAdd.value;
-  const newCard = new Card(cardName, cardUrl, "#template-card", handleImageClick);
-  const newCardElement = newCard.createCard();
 
-  sectionCards.prepend(newCardElement);
-  popupAdd.classList.remove("popup_opened-add");
+// popup de formulario de editar perfil
 
+const popupEditProfile = new PopupWithForm("#popup-edit", (inputValues) => {
+  userInfo.setUserInfo({name: inputValues.name, about: inputValues.about});
 
-  inputAdd.value = "";
-  inputEnlaceAdd.value = "";
-}
+  popupEditProfile.close();
 
-popupAddForm.addEventListener('submit', handleNewPlaceSubmit);
-
-  popupImageClose.addEventListener("click", function () {
-    popupImage.style.display = "none";
-  });
-
-
-const settings = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: "button[type='submit']",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
-
-};
-
-const editProfileValidator = new FormValidator(settings, popupForm);
-editProfileValidator.enableValidation();
-
-const addCardValidator = new FormValidator(settings, popupAddForm);
-addCardValidator.enableValidation()
-
-
-// Inicializamos listeners
-handleOpenPopup(profileButton, popupEdit);
-handleAddPopup(addButton, popupAdd);
-handleClosePopup(popupCloseEdit, popupEdit);
-handleAddClosePopup(closeAdd, popupAdd);
-// Overlay close
-handleOverlayClose(popupEdit, "popup_opened");
-handleOverlayClose(popupAdd, "popup_opened-add");
-
-handleOverlayCloseByHide(popupImage);
-
-// Escape close
-handleEscClose(popupAdd, popupEdit, popupImage);
-
-// Listener para el submit del perfil
-popupForm.addEventListener("submit", (evt) => {
-  handleProfileFormSubmit(evt, content, () => {
-    popupEdit.classList.remove("popup_opened");
-  });
 });
 
+popupEditProfile.setEventListeners();
+
+document.querySelector(".profile__button-edit").addEventListener("click", () => {
+  popupEditProfile.open()
+});
+
+
+// formulario añadir tarjeta
+const popupAddCard = new PopupWithForm("#popup-add", (newCardData) => {
+  const cardTemplate = document.querySelector("#template-card").content.querySelector(".card").cloneNode(true);
+
+  const cardImage = cardTemplate.querySelector(".card__photo");
+  const cardTitle = cardTemplate.querySelector(".card__name");
+
+  cardImage.src = newCardData.url;
+  cardImage.alt = newCardData.titulo;
+  cardTitle.textContent = newCardData.titulo;
+
+  cardImage.addEventListener("click", () => {
+    popupWithImage.open(newCardData.titulo, newCardData.url);
+  });
+
+  document.querySelector(".cards").prepend(cardTemplate);
+  popupAddCard.close();
+});
+
+popupAddCard.setEventListeners();
+document.querySelector(".profile__button-add").addEventListener("click", () => popupAddCard.open());
+
+// validacion de formularios
+
+
+
+
+const editProfileValidator = new FormValidator(settings, document.querySelector("#form-edit"));
+editProfileValidator.enableValidation();
+
+
+const addCardValidator = new FormValidator(settings, document.querySelector("#form-add"));
+addCardValidator.enableValidation();
+
+
+
+// Obtener datos actuales
+const currentData = userInfo.getUserInfo();
+
+// Actualizar datos después de enviar formulario
+userInfo.setUserInfo({ name: "Luisandra", about: "Desarrolladora Web" });
 
