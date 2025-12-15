@@ -129,3 +129,19 @@ const currentData = userInfo.getUserInfo();
 
 // Actualizar datos después de enviar formulario
 userInfo.setUserInfo({ name: "Luisandra", about: "Desarrolladora Web" });
+
+
+// function countBits(p) {
+//   return p.toString(2).split("1").length - 1;
+// }
+
+// function countBits(n) {
+//   let count = 0;
+//   while (n > 0) {
+//     count += n & 1;
+//     n >>= 1;
+//   }
+//   return count;
+// }
+
+// console.log(countBits(1234));
