@@ -1,9 +1,9 @@
 import Card from "../pages/Card.js";
-import FormValidator from "../pages/FormValidator.js";
-import Section from "../pages/Section.js";
+import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
 import PopupWithForm from "../pages/PopupWithForm.js";
 import PopupWithImage from "../pages/PopupWithImage.js";
-import UserInfo from "../pages/UserInfo.js";
+import UserInfo from "../components/UserInfo.js";
 
   const settings = {
   formSelector: ".popup__form",
