@@ -12,7 +12,7 @@ HTML5
 CSS
 Tipografía: Inter
 Diseño responsivo
-JAVASCRIPT
+JAVASCRIPT(En este proyecto utilizamos clases de JavaScript.)
 
 El enlace a GitHub Pages
 

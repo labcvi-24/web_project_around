@@ -90,30 +90,25 @@ document.querySelector(".profile__button-edit").addEventListener("click", () => 
 
 // formulario añadir tarjeta
 const popupAddCard = new PopupWithForm("#popup-add", (newCardData) => {
-  const cardTemplate = document.querySelector("#template-card").content.querySelector(".card").cloneNode(true);
+  const card = new Card(
+    newCardData.titulo,
+    newCardData.url,
+    "#template-card",
+    handleImageClick
+  );
 
-  const cardImage = cardTemplate.querySelector(".card__photo");
-  const cardTitle = cardTemplate.querySelector(".card__name");
+  const cardElement = card.createCard();
+  cardList.addItem(cardElement);
 
-  cardImage.src = newCardData.url;
-  cardImage.alt = newCardData.titulo;
-  cardTitle.textContent = newCardData.titulo;
-
-  cardImage.addEventListener("click", () => {
-    popupWithImage.open(newCardData.titulo, newCardData.url);
-  });
-
-  document.querySelector(".cards").prepend(cardTemplate);
   popupAddCard.close();
+
 });
 
 popupAddCard.setEventListeners();
+
 document.querySelector(".profile__button-add").addEventListener("click", () => popupAddCard.open());
 
 // validacion de formularios
-
-
-
 
 const editProfileValidator = new FormValidator(settings, document.querySelector("#form-edit"));
 editProfileValidator.enableValidation();
