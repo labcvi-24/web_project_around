@@ -1,7 +1,7 @@
 {
   "name": "web_project_around",
   "version": "1.0.0",
-  "description": "educaction",
+  "description": "educacion",
   "homepage": "https://github.com/labcvi-24/web_project_around#readme",
   "bugs": {
     "url": "https://github.com/labcvi-24/web_project_around/issues"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/labcvi-24/web_project_around.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "luisandra briceño",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
