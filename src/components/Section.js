@@ -7,13 +7,18 @@ export default class Section {
 
   }
 
-  renderItems(){
-    this.items.forEach((item) => {
-      const element = this.renderer(item);
-      this.addItem(element);
-    });
-
+renderItems() {
+  this.container.innerHTML = ''; // limpiar contenedor
+  this.items.forEach((item) => {
+    const element = this.renderer(item);
+    this.addItem(element);
+  });
   }
+
+  setItems(items) {
+  this.items = items;
+  this.renderItems();
+}
 
   addItem(element){
     this.container.prepend(element);
