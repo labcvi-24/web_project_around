@@ -60,7 +60,7 @@ class Api {
     .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`));
   }
 
-  // Dar "me gusta"
+
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
@@ -69,7 +69,7 @@ class Api {
     .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`));
   }
 
-  // Quitar "me gusta"
+
   unlikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
