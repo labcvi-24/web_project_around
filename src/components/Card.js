@@ -26,11 +26,18 @@ export default class Card {
     this.deleteButton = this.cardElement.querySelector(".card__remove");
 
     this.cardTitulo.textContent = this._name;
-    this.cardImage.src = this._link;
     this.cardImage.alt = this._name;
 
-    this._renderLike();
-    this._setEventListeners();
+    this.cardImage.onload = ()=> {
+      this._renderLike();
+      this._setEventListeners();
+    }
+
+    this.cardImage.onerror = () => {
+      console.log("Error al cargar la imagen:", this._link);
+    };
+
+    this.cardImage.src = this._link;
 
     return this.cardElement;
   }

@@ -122,6 +122,7 @@ api.getAppInfo()
     currentUserId = userData._id;
 
     userInfo.setUserInfo(userData);
+    console.log(userData, cards);
     cardList.setItems(cards); // aquí se renderizan las tarjetas
   })
   .catch(err => console.log(err));
